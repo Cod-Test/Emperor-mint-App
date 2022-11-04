@@ -255,7 +255,7 @@ function App() {
                   margin: "5px",
                 }}
               >
-                Roadmap
+                5STAR
               </StyledButton>
               <StyledButton
                 style={{
