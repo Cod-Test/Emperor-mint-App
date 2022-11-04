@@ -416,7 +416,7 @@ function App() {
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            The max mintAmount is 1, and the totalSuppy is your tokenId.
+            The max mintAmount is 1 Emperor per mint.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
