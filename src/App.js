@@ -416,7 +416,7 @@ function App() {
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            The max mintAmount is 1 Emperor per mint.
+            The max mintAmount is 1, follow on Twitter @Emperors_club.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
