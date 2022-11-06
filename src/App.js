@@ -255,7 +255,7 @@ function App() {
                   margin: "5px",
                 }}
               >
-                W/Paper
+                White Paper
               </StyledButton>
               <StyledButton
                 style={{
