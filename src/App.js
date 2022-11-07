@@ -416,7 +416,7 @@ function App() {
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} TestNet) and the correct address. Please note:
-            You can Borrow 1 core and Payback 1.5 core. Follow us on Twitter @Emperors_club.
+            The totalSupply will increase after successful minting, and that will be your tokenId. Follow us on Twitter @Emperors_club.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
