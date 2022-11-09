@@ -415,7 +415,7 @@ function App() {
             }}
           >
             Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} TestNet) and the correct address. Please note:
+            {CONFIG.NETWORK.NAME} TestNet) and with funded wallet. Please note:
             After a successful minting, the totalSupply will increase and that will be your tokenId. Follow us on Twitter @Emperors_club.
           </s.TextDescription>
           <s.SpacerSmall />
