@@ -427,7 +427,7 @@ function App() {
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
             successfully mint your NFT. We recommend that you don't lower the
-            gas limit. For Contract address, source code and functions, please click the address link above.
+            gas limit. For Contract address, source code and functions, please click the CONTRACT button above.
           </s.TextDescription>
         </s.Container>
       </s.Container>
