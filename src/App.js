@@ -110,6 +110,7 @@ function App() {
       ID: 0,
     },
     NFT_NAME: "",
+    SCAN: "",
     SYMBOL: "",
     MAX_SUPPLY: 1,
     WEI_COST: 0,
@@ -239,7 +240,7 @@ function App() {
               }}
             >
               <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                {truncate(CONFIG.SCAN, 15)}
               </StyledLink>
             </s.TextDescription>
             <span
