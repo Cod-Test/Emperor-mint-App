@@ -94,11 +94,6 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
-export const StyledLink = styled.a`
-  color: var(--secondary);
-  text-decoration: none;
-`;
-
 function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -109,7 +104,6 @@ function App() {
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
-    MARKET_LINK: "",
     NETWORK: {
       NAME: "",
       SYMBOL: "",
@@ -117,9 +111,6 @@ function App() {
     },
     NFT_NAME: "",
     SCAN: "",
-    MARKET: "",
-    HANDLE: "",
-    TUTOR: "",
     SYMBOL: "",
     MAX_SUPPLY: 1,
     WEI_COST: 0,
@@ -155,7 +146,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! sign in to territory to view it.`
+          `WOW, emperor ${data.Supply} is now yours! visit Nft marketplace to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -257,15 +248,6 @@ function App() {
                 textAlign: "center",
               }}
             >
-              <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
-                {truncate(CONFIG.MARKET, 15)}
-              </StyledLink>
-            </s.TextDescription>
-            <span
-              style={{
-                textAlign: "center",
-              }}
-            >
               <StyledButton
                 onClick={(e) => {
                   window.open("/config/EmperorWhitePaper.pdf", "_blank");
@@ -298,10 +280,10 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  You can still find {CONFIG.NFT_NAME} on
+                  You can still learn about {CONFIG.NFT_NAME} on
                 </s.TextDescription>
                 <s.SpacerSmall />
-                <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
+                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
                   {CONFIG.MARKET}
                 </StyledLink>
               </>
@@ -435,7 +417,7 @@ function App() {
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} TestNet) and with a funded wallet. Please note:
-            After a successful minting, the Supply will increase and that will be your tokenId. Or sign in to the territory to view your nft.
+            After a successful minting, the Supply will increase and that will be your tokenId. Follow us on Twitter @Emperors_club.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
