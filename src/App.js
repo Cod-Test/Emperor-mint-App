@@ -103,6 +103,21 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
+export const StyledLink = styled.a`
+  color: var(--secondary);
+  text-decoration: none;
+`;
+
+export const StyledLink = styled.a`
+  color: var(--secondary);
+  text-decoration: none;
+`;
+
+export const StyledLink = styled.a`
+  color: var(--secondary);
+  text-decoration: none;
+`;
+
 function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
