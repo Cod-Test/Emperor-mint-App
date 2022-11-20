@@ -1,7 +1,6 @@
 {
   "CONTRACT_ADDRESS": "0x662115d016c8e9df72846536ce539bc7b5bc4349",
   "SCAN_LINK": "https://scan.test.btcs.network/address/0x662115d016c8e9df72846536ce539bc7b5bc4349",
-  "MARKET_LINK": "https://youngparrotnft.com",
   "NETWORK": {
     "NAME": "CORE",
     "SYMBOL": "core",
@@ -9,7 +8,6 @@
   },
   "NFT_NAME": "EMPEROR NFT",
   "SCAN": "CONTRACT",
-  "MARKET": "TERRITORY",
   "SYMBOL": "EMPEROR",
   "MAX_SUPPLY": 33,
   "WEI_COST": 2000000000000000000,
