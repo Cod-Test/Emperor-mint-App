@@ -146,7 +146,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, emperor ${data.Supply + 1} is now yours! Import to wallet to view it.`
+          `WOW, emperor ${data.Supply ++} is now yours! Import to wallet to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
