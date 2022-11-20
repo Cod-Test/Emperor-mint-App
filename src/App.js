@@ -146,7 +146,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, emperor ${data.Supply} is now yours! visit Nft marketplace to view it.`
+          `WOW, emperor ${data.Supply} is now yours! Import to wallet to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -284,7 +284,7 @@ function App() {
                 </s.TextDescription>
                 <s.SpacerSmall />
                 <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                  {CONFIG.MARKET}
+                  {CONFIG.MARKETPLACE}
                 </StyledLink>
               </>
             ) : (
