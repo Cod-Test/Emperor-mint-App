@@ -8,6 +8,9 @@ import styled from "styled-components";
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
+const truncate = (input, len) =>
+  input.length > len ? `${input.substring(0, len)}...` : input;
+
 export const StyledButton = styled.button`
   padding: 10px;
   border-radius: 50px;
@@ -99,16 +102,6 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
-export const StyledLink = styled.a`
-  color: var(--secondary);
-  text-decoration: none;
-`;
-
-export const StyledLink = styled.a`
-  color: var(--secondary);
-  text-decoration: none;
-`;
-
 function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -119,6 +112,7 @@ function App() {
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
+    MARKET_LINK: "",
     NETWORK: {
       NAME: "",
       SYMBOL: "",
@@ -136,9 +130,6 @@ function App() {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
-    MARKET_LINK: "",
-    HANDLE_LINK: "",
-    TUTOR_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -271,24 +262,6 @@ function App() {
             >
               <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
                 {truncate(CONFIG.MARKET, 15)}
-              </StyledLink>
-            </s.TextDescription>
-            <span
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
-                {truncate(CONFIG.HANDLE, 15)}
-              </StyledLink>
-            </s.TextDescription>
-            <span
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
-                {truncate(CONFIG.TUTOR, 15)}
               </StyledLink>
             </s.TextDescription>
             <span
