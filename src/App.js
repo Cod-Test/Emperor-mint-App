@@ -111,6 +111,9 @@ function App() {
     },
     NFT_NAME: "",
     SCAN: "",
+    MARKET: "",
+    HANDLE: "",
+    TUTOR: "",
     SYMBOL: "",
     MAX_SUPPLY: 1,
     WEI_COST: 0,
@@ -118,6 +121,9 @@ function App() {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
+    MARKET_LINK: "",
+    HANDLE_LINK: "",
+    TUTOR_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -146,7 +152,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+          `WOW, the ${CONFIG.NFT_NAME} is yours! sign in to territory to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -248,6 +254,33 @@ function App() {
                 textAlign: "center",
               }}
             >
+              <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
+                {truncate(CONFIG.MARKET, 15)}
+              </StyledLink>
+            </s.TextDescription>
+            <span
+              style={{
+                textAlign: "center",
+              }}
+            >
+              <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
+                {truncate(CONFIG.HANDLE, 15)}
+              </StyledLink>
+            </s.TextDescription>
+            <span
+              style={{
+                textAlign: "center",
+              }}
+            >
+              <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
+                {truncate(CONFIG.TUTOR, 15)}
+              </StyledLink>
+            </s.TextDescription>
+            <span
+              style={{
+                textAlign: "center",
+              }}
+            >
               <StyledButton
                 onClick={(e) => {
                   window.open("/config/EmperorWhitePaper.pdf", "_blank");
@@ -280,11 +313,11 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  You can still learn about {CONFIG.NFT_NAME} on
+                  You can still find {CONFIG.NFT_NAME} on
                 </s.TextDescription>
                 <s.SpacerSmall />
-                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                  {CONFIG.MARKETPLACE}
+                <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
+                  {CONFIG.MARKET}
                 </StyledLink>
               </>
             ) : (
@@ -417,7 +450,7 @@ function App() {
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} TestNet) and with a funded wallet. Please note:
-            After a successful minting, the Supply will increase and that will be your tokenId. Follow us on Twitter @Emperors_club.
+            After a successful minting, the Supply will increase and that will be your tokenId. Or sign in to the territory to view your nft.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
