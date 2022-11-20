@@ -1,6 +1,7 @@
 {
   "CONTRACT_ADDRESS": "0x662115d016c8e9df72846536ce539bc7b5bc4349",
   "SCAN_LINK": "https://scan.test.btcs.network/address/0x662115d016c8e9df72846536ce539bc7b5bc4349",
+  "MARKET_LINK": "https://youngparrotnft.com",
   "NETWORK": {
     "NAME": "CORE",
     "SYMBOL": "core",
@@ -9,8 +10,6 @@
   "NFT_NAME": "EMPEROR NFT",
   "SCAN": "CONTRACT",
   "MARKET": "TERRITORY",
-  "HANDLE": "TWITTER",
-  "TUTOR": "GUIDE",
   "SYMBOL": "EMPEROR",
   "MAX_SUPPLY": 33,
   "WEI_COST": 2000000000000000000,
@@ -18,8 +17,5 @@
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "eClub",
   "MARKETPLACE_LINK": "https://t.me/+CbV70CRJWII0ZWVk",
-  "MARKET_LINK": "https://youngparrotnft.com",
-  "HANDLE_LINK": "https://twitter.com/Emperors_club",
-  "TUTOR_LINK": "",
   "SHOW_BACKGROUND": true
 }
