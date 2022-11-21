@@ -424,10 +424,9 @@ function App() {
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-          <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
-            {CONFIG.HANDLE}
-          </StyledLink>
-          <s.SpacerSmall />
+        <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
+          {CONFIG.HANDLE}
+        <s.SpacerSmall />
           <s.TextDescription
             style={{
               textAlign: "center",
