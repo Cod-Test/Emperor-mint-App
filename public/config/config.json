@@ -8,6 +8,7 @@
   },
   "NFT_NAME": "EMPEROR NFT",
   "SCAN": "CONTRACT",
+  "MARKET": "TERRITORY",
   "SYMBOL": "EMPEROR",
   "MAX_SUPPLY": 39,
   "WEI_COST": 2000000000000000000,
@@ -15,5 +16,6 @@
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "eClub",
   "MARKETPLACE_LINK": "https://t.me/+CbV70CRJWII0ZWVk",
+  "MARKET_LINK": "https://youngparrotnft.com",
   "SHOW_BACKGROUND": true
 }
