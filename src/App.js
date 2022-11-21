@@ -111,6 +111,7 @@ function App() {
     },
     NFT_NAME: "",
     SCAN: "",
+    MARKET: "",
     SYMBOL: "",
     MAX_SUPPLY: 1,
     WEI_COST: 0,
@@ -118,6 +119,7 @@ function App() {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
+    MARKET_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -280,11 +282,11 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  You can still learn about {CONFIG.NFT_NAME} on
+                  You can still find {CONFIG.NFT_NAME} on
                 </s.TextDescription>
                 <s.SpacerSmall />
-                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                  {CONFIG.MARKETPLACE}
+                <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
+                  {CONFIG.MARKET}
                 </StyledLink>
               </>
             ) : (
