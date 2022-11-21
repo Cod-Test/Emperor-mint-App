@@ -278,6 +278,7 @@ function App() {
                 {CONFIG.MARKETPLACE}
               </StyledButton>
             </span>
+            <s.SpacerSmall />
             <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
               {CONFIG.TUTOR}
             </StyledLink>
@@ -424,6 +425,7 @@ function App() {
           <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
             {CONFIG.HANDLE}
           </StyledLink>
+          <s.SpacerSmall />
           <s.TextDescription
             style={{
               textAlign: "center",
