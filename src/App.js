@@ -252,12 +252,6 @@ function App() {
             <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
               {CONFIG.MARKET}
             </StyledLink>
-            <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
-              {CONFIG.HANDLE}
-            </StyledLink>
-            <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
-              {CONFIG.TUTOR}
-            </StyledLink>
             <span
               style={{
                 textAlign: "center",
@@ -284,6 +278,9 @@ function App() {
                 {CONFIG.MARKETPLACE}
               </StyledButton>
             </span>
+            <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
+              {CONFIG.TUTOR}
+            </StyledLink>
             <s.SpacerSmall />
             {Number(data.Supply) >= CONFIG.MAX_SUPPLY ? (
               <>
@@ -424,6 +421,9 @@ function App() {
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+          <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
+            {CONFIG.HANDLE}
+          </StyledLink>
           <s.TextDescription
             style={{
               textAlign: "center",
