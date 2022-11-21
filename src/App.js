@@ -112,6 +112,7 @@ function App() {
     NFT_NAME: "",
     SCAN: "",
     MARKET: "",
+    HANDLE: "",
     TUTOR: "",
     SYMBOL: "",
     MAX_SUPPLY: 1,
@@ -120,8 +121,9 @@ function App() {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
-    TUTOR_LINK: "",
     MARKET_LINK: "",
+    HANDLE_LINK: "",
+    TUTOR_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -150,7 +152,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is now yours! Import to wallet to view it.`
+          `WOW, the ${CONFIG.NFT_NAME} is now yours! sign in to Territory to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -247,7 +249,12 @@ function App() {
                 {truncate(CONFIG.SCAN, 15)}
               </StyledLink>
             </s.TextDescription>
-            <s.SpacerSmall />
+            <StyeldLink target={"_blank"} href={CONFIG.MARKET_LINK}>
+              {CONFIG.MARKET}
+            </StyledLink>
+            <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
+              {CONFIG.HANDLE}
+            </StyledLink>
             <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
               {CONFIG.TUTOR}
             </StyledLink>
@@ -425,7 +432,7 @@ function App() {
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} TestNet) and with a funded wallet. Please note:
-            After a successful minting, the Supply will increase and that will be your tokenId. Follow us on Twitter @Emperors_club.
+            After a successful minting, the Supply will increase and that will be your tokenId.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
