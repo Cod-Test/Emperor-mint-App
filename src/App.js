@@ -249,7 +249,7 @@ function App() {
                 {truncate(CONFIG.SCAN, 15)}
               </StyledLink>
             </s.TextDescription>
-            <StyeldLink target={"_blank"} href={CONFIG.MARKET_LINK}>
+            <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
               {CONFIG.MARKET}
             </StyledLink>
             <StyledLink target={"_blank"} href={CONFIG.HANDLE_LINK}>
