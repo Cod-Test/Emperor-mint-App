@@ -112,6 +112,7 @@ function App() {
     NFT_NAME: "",
     SCAN: "",
     MARKET: "",
+    TUTOR: "",
     SYMBOL: "",
     MAX_SUPPLY: 1,
     WEI_COST: 0,
@@ -119,6 +120,7 @@ function App() {
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
+    TUTOR_LINK: "",
     MARKET_LINK: "",
     SHOW_BACKGROUND: false,
   });
@@ -245,6 +247,10 @@ function App() {
                 {truncate(CONFIG.SCAN, 15)}
               </StyledLink>
             </s.TextDescription>
+            <s.SpacerSmall />
+            <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
+              {CONFIG.TUTOR}
+            </StyledLink>
             <span
               style={{
                 textAlign: "center",
