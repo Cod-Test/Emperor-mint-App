@@ -9,6 +9,7 @@
   "NFT_NAME": "EMPEROR NFT",
   "SCAN": "CONTRACT",
   "MARKET": "TERRITORY",
+  "HANDLE": "TWITTER",
   "TUTOR": "GUIDE",
   "SYMBOL": "EMPEROR",
   "MAX_SUPPLY": 39,
@@ -18,6 +19,7 @@
   "MARKETPLACE": "eClub",
   "MARKETPLACE_LINK": "https://t.me/+CbV70CRJWII0ZWVk",
   "MARKET_LINK": "https://youngparrotnft.com",
+  "HANDLE_LINK": "https://twitter.com/Emperors_club
   "TUTOR_LINK": "",
   "SHOW_BACKGROUND": true
 }
