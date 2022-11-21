@@ -9,6 +9,7 @@
   "NFT_NAME": "EMPEROR NFT",
   "SCAN": "CONTRACT",
   "MARKET": "TERRITORY",
+  "TUTOR": "GUIDE",
   "SYMBOL": "EMPEROR",
   "MAX_SUPPLY": 39,
   "WEI_COST": 2000000000000000000,
@@ -17,5 +18,6 @@
   "MARKETPLACE": "eClub",
   "MARKETPLACE_LINK": "https://t.me/+CbV70CRJWII0ZWVk",
   "MARKET_LINK": "https://youngparrotnft.com",
+  "TUTOR_LINK": "",
   "SHOW_BACKGROUND": true
 }
