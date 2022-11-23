@@ -428,6 +428,10 @@ function App() {
           {CONFIG.HANDLE}
         </StyledLink>
         <s.SpacerSmall />
+        <a href={CONFIG.HANDLE_LINK}>
+          <StyledLogo alt={"twitter"} src={"/config/images/twitter.png"} />
+        </a>
+        <s.SpacerSmall />
           <s.TextDescription
             style={{
               textAlign: "center",
