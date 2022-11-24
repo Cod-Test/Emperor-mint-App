@@ -152,7 +152,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is now yours! sign in to Territory to view it.`
+          `WOW, the ${data.Supply += 1} is now yours! sign in to Territory to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
