@@ -123,7 +123,7 @@ function App() {
     MARKETPLACE_LINK: "",
     MARKET_LINK: "",
     HANDLE_LINK: "",
-    TUTOR_LINK: "",
+    MAIL_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -208,7 +208,7 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
-        <a href={CONFIG.MARKETPLACE_LINK}>
+        <a href={CONFIG.MAIL_LINK}>
           <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         </a>
         <s.SpacerSmall />
@@ -281,7 +281,7 @@ function App() {
               </StyledButton>
             </span>
             <s.SpacerSmall />
-            <StyledLink target={"_blank"} href={CONFIG.TUTOR_LINK}>
+            <StyledLink target={"_blank"} href={"/config/EmperorwhitePaper.pdf"}>
               {CONFIG.TUTOR}
             </StyledLink>
             <s.SpacerSmall />
