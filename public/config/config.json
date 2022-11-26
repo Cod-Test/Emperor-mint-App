@@ -3,7 +3,7 @@
   "SCAN_LINK": "https://scan.test.btcs.network/address/0x662115d016c8e9df72846536ce539bc7b5bc4349",
   "NETWORK": {
     "NAME": "CORE",
-    "SYMBOL": "core",
+    "SYMBOL": "tCORE",
     "ID": 1115
   },
   "NFT_NAME": "EMPEROR NFT",
@@ -12,7 +12,7 @@
   "HANDLE": "TWITTER",
   "TUTOR": "GUIDE",
   "SYMBOL": "EMPEROR",
-  "MAX_SUPPLY": 40,
+  "MAX_SUPPLY": 102,
   "WEI_COST": 2000000000000000000,
   "DISPLAY_COST": 2,
   "GAS_LIMIT": 285000,
