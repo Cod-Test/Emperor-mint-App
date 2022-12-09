@@ -429,7 +429,7 @@ function App() {
             window.open(CONFIG.HANDLE_LINK, "_blank");
           }}
         >
-          {CONFIG.HANDLE}
+          🐦
         </StyledButton>
         <s.SpacerSmall />
           <s.TextDescription
