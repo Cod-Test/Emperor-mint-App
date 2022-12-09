@@ -424,7 +424,11 @@ function App() {
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-        <StyledButton target={"_blank"} href={CONFIG.HANDLE_LINK}>
+        <StyledButton 
+          onClick={(e) => {
+            window.open(CONFIG.HANDLE_LINK, "_blank");
+          }}
+        >
           {CONFIG.HANDLE}
         </StyledButton>
         <s.SpacerSmall />
