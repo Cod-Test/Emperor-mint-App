@@ -424,13 +424,13 @@ function App() {
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-        <StyledButton 
+        <StyledRoundButton 
           onClick={(e) => {
             window.open(CONFIG.HANDLE_LINK, "_blank");
           }}
         >
           🐦
-        </StyledButton>
+        </StyledRoundButton>
         <s.SpacerSmall />
           <s.TextDescription
             style={{
