@@ -98,7 +98,7 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [prcesss, setProcess] = useState(false);
+  const [process, setProcess] = useState(false);
   const [feedback, setFeedback] = useState(`Conneted to Web3.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
