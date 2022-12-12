@@ -162,7 +162,7 @@ function App() {
     setFeedback(`transaction processing...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .UnRegister()
+      .Unregister()
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -190,7 +190,7 @@ function App() {
     setFeedback(`transaction processing...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .Register()
+      .register()
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
