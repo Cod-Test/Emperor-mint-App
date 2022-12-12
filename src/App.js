@@ -99,7 +99,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Conneted to Web3.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -131,7 +131,7 @@ function App() {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minning processing...`);
+    setFeedback(`Minting processing...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(blockchain.account)
@@ -155,14 +155,14 @@ function App() {
       });
   };
 
-  const claimNFTs = () => {
+  const unregisterMint = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minning processing...`);
+    setFeedback(`transaction processing...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(blockchain.account)
+      .UnRegister()
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -176,21 +176,21 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Mint successful.`
+          `transaction successful.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
       });
   };
 
-  const claimNFTs = () => {
+  const registerMint = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minning processing...`);
+    setFeedback(`transaction processing...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(blockchain.account)
+      .Register()
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -204,7 +204,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Mint successful.`
+          `Congrats! Registration successful.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -415,7 +415,8 @@ function App() {
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          decrementMintAmount();
+                          unregisterMint();
+                          getData();
                         }}
                       >
                         ❌
@@ -434,7 +435,8 @@ function App() {
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          incrementMintAmount();
+                          registerMint();
+                          getData();
                         }}
                       >
                         ✔️
