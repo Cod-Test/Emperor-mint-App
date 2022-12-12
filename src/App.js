@@ -128,21 +128,17 @@ function App() {
   });
 
   const claimNFTs = () => {
-    let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
-    let totalCostWei = String(cost * mintAmount);
-    let totalGasLimit = String(gasLimit * mintAmount);
-    console.log("Cost: ", totalCostWei);
+    let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
+    setFeedback(`Minning processing...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(blockchain.account, mintAmount)
+      .mint(blockchain.account)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: totalCostWei,
       })
       .once("error", (err) => {
         console.log(err);
@@ -152,27 +148,67 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is now yours! import to wallet to view it.`
+          `Congrats! Mint successful.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
       });
   };
 
-  const decrementMintAmount = () => {
-    let newMintAmount = mintAmount - 1;
-    if (newMintAmount < 1) {
-      newMintAmount = 1;
-    }
-    setMintAmount(newMintAmount);
+  const claimNFTs = () => {
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalGasLimit = String(gasLimit);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Minning processing...`);
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .mint(blockchain.account)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `Congrats! Mint successful.`
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+      });
   };
 
-  const incrementMintAmount = () => {
-    let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 1) {
-      newMintAmount = 1;
-    }
-    setMintAmount(newMintAmount);
+  const claimNFTs = () => {
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalGasLimit = String(gasLimit);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Minning processing...`);
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .mint(blockchain.account)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `Congrats! Mint successful.`
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+      });
   };
 
   const getData = () => {
@@ -237,7 +273,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data.Supply} / {CONFIG.MAX_SUPPLY}
+              {data.Supply}
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -267,7 +303,7 @@ function App() {
                   margin: "5px",
                 }}
               >
-                W/Paper
+                W/Paper1
               </StyledButton>
               <StyledButton
                 style={{
@@ -278,6 +314,16 @@ function App() {
                 }}
               >
                 {CONFIG.MARKETPLACE}
+              </StyledButton>
+              <StyledButton
+                onClick={(e) => {
+                  window.open("/config/EmperorWhitePaper.pdf", "_blank");
+                }}
+                style={{
+                  margin: "5px",
+                }}
+              >
+                W/Paper2
               </StyledButton>
             </span>
             <s.SpacerSmall />
@@ -372,7 +418,7 @@ function App() {
                           decrementMintAmount();
                         }}
                       >
-                        -
+                        ❌
                       </StyledRoundButton>
                       <s.SpacerMedium />
                       <s.TextDescription
@@ -381,7 +427,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        {mintAmount}
+                        Register
                       </s.TextDescription>
                       <s.SpacerMedium />
                       <StyledRoundButton
@@ -391,7 +437,7 @@ function App() {
                           incrementMintAmount();
                         }}
                       >
-                        +
+                        ✔️
                       </StyledRoundButton>
                     </s.Container>
                     <s.SpacerSmall />
@@ -404,7 +450,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "BUY"}
+                        {claimingNft ? "⚡" : "⛏️"}
                       </StyledButton>
                     </s.Container>
                   </>
