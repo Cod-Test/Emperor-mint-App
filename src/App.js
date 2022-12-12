@@ -144,7 +144,7 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
+        setFeedback("Sorry, Minting failed.");
         setProcess(false);
       })
       .then((receipt) => {
@@ -172,7 +172,7 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
+        setFeedback("Sorry, transaction failed.");
         setProcess(false);
       })
       .then((receipt) => {
@@ -200,7 +200,7 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
+        setFeedback("Sorry, transaction failed.");
         setProcess(false);
       })
       .then((receipt) => {
