@@ -364,13 +364,13 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Register and start minting {CONFIG.NFT_NAME} token.
+                  Register and start minting {CONFIG.SYMBOL} token.
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000.1 {CONFIG.NFT_NAME} tokens required to Register.
+                  20,000.1 {CONFIG.SYMBOL} tokens required to Register.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
