@@ -98,7 +98,7 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [claimingNft, setClaimingNft] = useState(false);
+  const [prcesss, setProcess] = useState(false);
   const [feedback, setFeedback] = useState(`Conneted to Web3.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
@@ -111,6 +111,7 @@ function App() {
     },
     NFT_NAME: "",
     SCAN: "",
+    SCANB: "",
     MARKET: "",
     HANDLE: "",
     TUTOR: "",
@@ -120,6 +121,7 @@ function App() {
     DISPLAY_COST: 0,
     GAS_LIMIT: 0,
     MARKETPLACE: "",
+    SCAN_LINKB: "",
     MARKETPLACE_LINK: "",
     MARKET_LINK: "",
     HANDLE_LINK: "",
@@ -127,12 +129,12 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-  const claimNFTs = () => {
+  const mintEmperor = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting processing...`);
-    setClaimingNft(true);
+    setProcess(true);
     blockchain.smartContract.methods
       .mint(blockchain.account)
       .send({
@@ -143,14 +145,14 @@ function App() {
       .once("error", (err) => {
         console.log(err);
         setFeedback("Sorry, something went wrong please try again later.");
-        setClaimingNft(false);
+        setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
           `Congrats! Mint successful.`
         );
-        setClaimingNft(false);
+        setProcess(false);
         dispatch(fetchData(blockchain.account));
       });
   };
@@ -160,7 +162,7 @@ function App() {
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`transaction processing...`);
-    setClaimingNft(true);
+    setProcess(true);
     blockchain.smartContract.methods
       .Unregister()
       .send({
@@ -171,14 +173,14 @@ function App() {
       .once("error", (err) => {
         console.log(err);
         setFeedback("Sorry, something went wrong please try again later.");
-        setClaimingNft(false);
+        setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
           `transaction successful.`
         );
-        setClaimingNft(false);
+        setProcess(false);
         dispatch(fetchData(blockchain.account));
       });
   };
@@ -188,7 +190,7 @@ function App() {
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`transaction processing...`);
-    setClaimingNft(true);
+    setProcess(true);
     blockchain.smartContract.methods
       .register()
       .send({
@@ -199,14 +201,14 @@ function App() {
       .once("error", (err) => {
         console.log(err);
         setFeedback("Sorry, something went wrong please try again later.");
-        setClaimingNft(false);
+        setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
           `Congrats! Registration successful.`
         );
-        setClaimingNft(false);
+        setProcess(false);
         dispatch(fetchData(blockchain.account));
       });
   };
@@ -276,6 +278,15 @@ function App() {
               {data.Supply}
             </s.TextTitle>
             <s.TextDescription
+                        style={{
+                          textAlign: "center",
+                          color: "var(--accent-text)",
+                        }}
+                      >
+                        MINTERS
+                      </s.TextDescription>
+            <s.SpacerSmall />
+            <s.TextDescription
               style={{
                 textAlign: "center",
                 color: "var(--primary-text)",
@@ -286,8 +297,8 @@ function App() {
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
-            <StyledLink target={"_blank"} href={CONFIG.MARKET_LINK}>
-              {CONFIG.MARKET}
+            <StyledLink target={"_blank"} href={CONFIG.SCAN_LINKB}>
+              {CONFIG.SCANB}
             </StyledLink>
             <s.SpacerSmall />
             <span
@@ -306,16 +317,6 @@ function App() {
                 W/Paper1
               </StyledButton>
               <StyledButton
-                style={{
-                  margin: "5px",
-                }}
-                onClick={(e) => {
-                  window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                }}
-              >
-                {CONFIG.MARKETPLACE}
-              </StyledButton>
-              <StyledButton
                 onClick={(e) => {
                   window.open("/config/EmperorWhitePaper.pdf", "_blank");
                 }}
@@ -324,6 +325,16 @@ function App() {
                 }}
               >
                 W/Paper2
+              </StyledButton>
+              <StyledButton
+                style={{
+                  margin: "5px",
+                }}
+                onClick={(e) => {
+                  window.open(CONFIG.MARKETPLACE_LINK, "_blank");
+                }}
+              >
+                {CONFIG.MARKETPLACE}
               </StyledButton>
             </span>
             <s.SpacerSmall />
@@ -353,14 +364,13 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
-                  {CONFIG.NETWORK.SYMBOL}.
+                  Register and start minting {CONFIG.NFT_NAME} token.
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Excluding gas fees.
+                  20,000.1 {CONFIG.NFT_NAME} tokens required to Register.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -412,14 +422,14 @@ function App() {
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledRoundButton
                         style={{ lineHeight: 0.4 }}
-                        disabled={claimingNft ? 1 : 0}
+                        disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
                           unregisterMint();
                           getData();
                         }}
                       >
-                        ❌
+                        -
                       </StyledRoundButton>
                       <s.SpacerMedium />
                       <s.TextDescription
@@ -428,31 +438,31 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        Register
+                        register
                       </s.TextDescription>
                       <s.SpacerMedium />
                       <StyledRoundButton
-                        disabled={claimingNft ? 1 : 0}
+                        disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
                           registerMint();
                           getData();
                         }}
                       >
-                        ✔️
+                        +
                       </StyledRoundButton>
                     </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
-                        disabled={claimingNft ? 1 : 0}
+                        disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          claimNFTs();
+                          mintEmperor();
                           getData();
                         }}
                       >
-                        {claimingNft ? "⚡" : "⛏️"}
+                        {claimingNft ? "⚡" : "MINT"}
                       </StyledButton>
                     </s.Container>
                   </>
@@ -479,6 +489,14 @@ function App() {
         >
           🐦
         </StyledRoundButton>
+        <s.SpacerSmall />
+        <StyledButton 
+          onClick={(e) => {
+            window.open(CONFIG.MARKET_LINK, "_blank");
+          }}
+        >
+          {CONFIG.MARKET}
+        </StyledButton>
         <s.SpacerSmall />
           <s.TextDescription
             style={{
