@@ -420,7 +420,7 @@ function App() {
                     </s.TextDescription>
                     <s.SpacerMedium />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledRoundButton
+                      <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
@@ -429,8 +429,8 @@ function App() {
                           getData();
                         }}
                       >
-                        -
-                      </StyledRoundButton>
+                        UNREGISTER
+                      </StyledButton>
                       <s.SpacerMedium />
                       <s.TextDescription
                         style={{
@@ -438,10 +438,10 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        register
+                        📝
                       </s.TextDescription>
                       <s.SpacerMedium />
-                      <StyledRoundButton
+                      <StyledButton
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -449,8 +449,8 @@ function App() {
                           getData();
                         }}
                       >
-                        +
-                      </StyledRoundButton>
+                        REGISTER
+                      </StyledButton>
                     </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
