@@ -144,13 +144,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, Minting failed.");
+        setFeedback("Sorry, Minting failed ❌.");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Mint successful.`
+          `Congrats! Mint successful ✔️.`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -172,13 +172,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, transaction failed.");
+        setFeedback("Sorry, transaction failed ❌.");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `transaction successful.`
+          `transaction successful ✔️.`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -200,13 +200,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, transaction failed.");
+        setFeedback("Sorry, transaction failed ❌.");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Registration successful.`
+          `Congrats! Registration successful ✔️.`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
