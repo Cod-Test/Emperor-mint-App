@@ -429,7 +429,7 @@ function App() {
                           getData();
                         }}
                       >
-                        UNREGISTER
+                        -
                       </StyledButton>
                       <s.SpacerMedium />
                       <s.TextDescription
@@ -449,7 +449,7 @@ function App() {
                           getData();
                         }}
                       >
-                        REGISTER
+                        +
                       </StyledButton>
                     </s.Container>
                     <s.SpacerSmall />
