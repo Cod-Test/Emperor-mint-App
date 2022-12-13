@@ -421,6 +421,7 @@ function App() {
                     <s.SpacerMedium />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
+                        style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -428,7 +429,7 @@ function App() {
                           getData();
                         }}
                       >
-                        -
+                        unregister
                       </StyledButton>
                       <s.SpacerMedium />
                       <s.TextDescription
@@ -441,6 +442,7 @@ function App() {
                       </s.TextDescription>
                       <s.SpacerMedium />
                       <StyledButton
+                        style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -448,7 +450,7 @@ function App() {
                           getData();
                         }}
                       >
-                        +
+                        register
                       </StyledButton>
                     </s.Container>
                     <s.SpacerSmall />
