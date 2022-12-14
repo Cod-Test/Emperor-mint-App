@@ -370,7 +370,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000.1 {CONFIG.SYMBOL} tokens required to Register.
+                  20,000 {CONFIG.SYMBOL} tokens required to Register.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
