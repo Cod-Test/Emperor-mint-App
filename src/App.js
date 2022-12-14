@@ -213,6 +213,23 @@ function App() {
       });
   };
 
+  async function typeSentence(sentence, eleRef, delay = 100) {
+  const letters = sentence.split("");
+  let mintAmount = i;
+  let i = 0;
+  while(i < letters.length) {
+    await waitForMs(delay);
+    $(eleRef).append(letters[i]);
+    i++
+  }
+  return;
+};
+
+
+function waitForMs(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+};
+
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
@@ -497,6 +514,22 @@ function App() {
           }}
         >
           {CONFIG.MARKET}
+        </StyledButton>
+        <s.TextDescription
+                        style={{
+                          textAlign: "center",
+                          color: "var(--accent-text)",
+                        }}
+                      >
+                        {mintAmount}
+                      </s.TextDescription>
+        <StyledButton 
+          onClick={(e) => {
+            e.preventDefault();
+            typeSentence();
+          }}
+        >
+          TokenId
         </StyledButton>
         <s.SpacerSmall />
           <s.TextDescription
