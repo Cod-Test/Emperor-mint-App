@@ -326,7 +326,9 @@ function App() {
               >
                 W/Paper2
               </StyledButton>
-              <StyledButton
+            </span>
+            <s.SpacerSmall />
+            <StyledButton
                 style={{
                   margin: "5px",
                 }}
@@ -336,12 +338,20 @@ function App() {
               >
                 {CONFIG.MARKETPLACE}
               </StyledButton>
-            </span>
             <s.SpacerSmall />
             <StyledLink target={"_blank"} href={"/config/EmperorwhitePaper.pdf"}>
               {CONFIG.TUTOR}
             </StyledLink>
             <s.SpacerSmall />
+            <StyledRoundButton 
+          onClick={(e) => {
+            e.preventDefault();
+            getData();
+          }}
+        >
+          💫
+        </StyledRoundButton>
+        <s.SpacerSmall />
             {Number(data.Supply) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
@@ -494,11 +504,10 @@ function App() {
         <s.SpacerMedium />
         <StyledRoundButton 
           onClick={(e) => {
-            e.preventDefault();
-            getData();
+            window.open(CONFIG.HANDLE_LINK, "_blank");
           }}
         >
-          🔃
+          🦄
         </StyledRoundButton>
         </s.Container>
         <s.SpacerSmall />
