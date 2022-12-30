@@ -483,6 +483,7 @@ function App() {
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+        <s.Container ai={"center"} jc={"center"} fd={"row"}>
         <StyledRoundButton 
           onClick={(e) => {
             window.open(CONFIG.HANDLE_LINK, "_blank");
@@ -490,6 +491,16 @@ function App() {
         >
           🐦
         </StyledRoundButton>
+        <s.SpacerMedium />
+        <StyledRoundButton 
+          onClick={(e) => {
+            e.preventDefault();
+            getData();
+          }}
+        >
+          🔃
+        </StyledRoundButton>
+        </s.Container>
         <s.SpacerSmall />
         <StyledButton 
           onClick={(e) => {
