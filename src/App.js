@@ -283,7 +283,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        MINTERS
+                        MINERS
                       </s.TextDescription>
             <s.SpacerSmall />
             <s.TextDescription
@@ -352,7 +352,7 @@ function App() {
           💫
         </StyledRoundButton>
         <s.SpacerSmall />
-            {Number(data.Supply) >= CONFIG.MAX_SUPPLY ? (
+            {Number(data._minters) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -374,7 +374,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  REGISTER AND START MINTING {CONFIG.SYMBOL} TOKEN.
+                  REGISTER AND JOIN THE MINE.
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
@@ -501,7 +501,7 @@ function App() {
         >
           🐦
         </StyledRoundButton>
-        <s.SpacerMedium />
+        <s.SpacerSmall />
         <StyledRoundButton 
           onClick={(e) => {
             window.open(CONFIG.HANDLE_LINK, "_blank");
@@ -526,8 +526,7 @@ function App() {
             }}
           >
             Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} TestNet) and with a funded wallet. Please note:
-            After a successful minting, the Supply will increase and that will be your tokenId.
+            {CONFIG.NETWORK.NAME} Mainnet) and with a funded wallet.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
@@ -537,8 +536,8 @@ function App() {
             }}
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. We recommend that you don't lower the
-            gas limit. For Contract address, source code and functions, please click the CONTRACT button above.
+            successfully execute your operations.
+            For Contract address, source code and functions, please click the CONTRACT button above.
           </s.TextDescription>
         </s.Container>
       </s.Container>
