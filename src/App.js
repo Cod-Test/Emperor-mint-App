@@ -144,13 +144,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, Minting failed ❌");
+        setFeedback("Sorry, Farming failed ❌");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Mint successful ✔️`
+          `Congrats! Farming successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -172,13 +172,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, transaction failed ❌");
+        setFeedback("Sorry, Harvest failed ❌");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `transaction successful ✔️`
+          `Congrats! Harvest successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -275,7 +275,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data.Supply}
+              {data._farmers}
             </s.TextTitle>
             <s.TextDescription
                         style={{
@@ -283,7 +283,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        MINERS
+                        FARMERS
                       </s.TextDescription>
             <s.SpacerSmall />
             <s.TextDescription
@@ -343,16 +343,7 @@ function App() {
               {CONFIG.TUTOR}
             </StyledLink>
             <s.SpacerSmall />
-            <StyledRoundButton 
-          onClick={(e) => {
-            e.preventDefault();
-            getData();
-          }}
-        >
-          💫
-        </StyledRoundButton>
-        <s.SpacerSmall />
-            {Number(data._minters) >= CONFIG.MAX_SUPPLY ? (
+            {Number(data._farmers) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -374,13 +365,13 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  REGISTER AND JOIN THE MINE.
+                  EMPEROR YIELD FARMING.
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens required to Register.
+                  20,000 {CONFIG.SYMBOL} tokens required for staking.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -429,7 +420,6 @@ function App() {
                       {feedback}
                     </s.TextDescription>
                     <s.SpacerMedium />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
@@ -439,30 +429,8 @@ function App() {
                           getData();
                         }}
                       >
-                        -
+                        HARVEST
                       </StyledButton>
-                      <s.SpacerMedium />
-                      <s.TextDescription
-                        style={{
-                          textAlign: "center",
-                          color: "var(--accent-text)",
-                        }}
-                      >
-                        📝
-                      </s.TextDescription>
-                      <s.SpacerMedium />
-                      <StyledButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={process ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          registerMint();
-                          getData();
-                        }}
-                      >
-                        +
-                      </StyledButton>
-                    </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
@@ -473,7 +441,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {process ? "⚡" : "MINT"}
+                        {process ? "⚡" : "FARM"}
                       </StyledButton>
                     </s.Container>
                   </>
