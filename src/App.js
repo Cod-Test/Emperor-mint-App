@@ -247,7 +247,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data.Supply}
+              {data._farmers}
             </s.TextTitle>
             <s.TextDescription
                         style={{
@@ -255,7 +255,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        MINERS
+                        FARMERS
                       </s.TextDescription>
             <s.SpacerSmall />
             <s.TextDescription
@@ -415,6 +415,7 @@ function App() {
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
+                        style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
