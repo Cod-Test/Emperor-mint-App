@@ -129,14 +129,14 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-  const mintEmperor = () => {
+  const FarmEmperor = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting processing...`);
+    setFeedback(`Farming processing...`);
     setProcess(true);
     blockchain.smartContract.methods
-      .mint(blockchain.account)
+      .farm(blockchain.account)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -144,27 +144,27 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, Minting failed ❌");
+        setFeedback("Sorry, Farming failed ❌");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Mint successful ✔️`
+          `Congrats! Farming successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
       });
   };
 
-  const unregisterMint = () => {
+  const HarvestEmperor = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`transaction processing...`);
+    setFeedback(`Harvesting processing...`);
     setProcess(true);
     blockchain.smartContract.methods
-      .Unregister()
+      .harvest()
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -172,41 +172,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, transaction failed ❌");
+        setFeedback("Sorry, Harvesting failed ❌");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `transaction successful ✔️`
-        );
-        setProcess(false);
-        dispatch(fetchData(blockchain.account));
-      });
-  };
-
-  const registerMint = () => {
-    let gasLimit = CONFIG.GAS_LIMIT;
-    let totalGasLimit = String(gasLimit);
-    console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`transaction processing...`);
-    setProcess(true);
-    blockchain.smartContract.methods
-      .register()
-      .send({
-        gasLimit: String(totalGasLimit),
-        to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
-      })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Sorry, transaction failed ❌");
-        setProcess(false);
-      })
-      .then((receipt) => {
-        console.log(receipt);
-        setFeedback(
-          `Congrats! Registration successful ✔️`
+          `Congrats! Harvest successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -343,16 +315,7 @@ function App() {
               {CONFIG.TUTOR}
             </StyledLink>
             <s.SpacerSmall />
-            <StyledRoundButton 
-          onClick={(e) => {
-            e.preventDefault();
-            getData();
-          }}
-        >
-          💫
-        </StyledRoundButton>
-        <s.SpacerSmall />
-            {Number(data._minters) >= CONFIG.MAX_SUPPLY ? (
+            {Number(data._farmers) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -374,13 +337,13 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  REGISTER AND JOIN THE MINE.
+                  EMPEROR YIELD FARMING.
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens required to Register.
+                  20,000 {CONFIG.SYMBOL} tokens required for farming.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -429,17 +392,16 @@ function App() {
                       {feedback}
                     </s.TextDescription>
                     <s.SpacerMedium />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          unregisterMint();
+                          HarvestEmperor();
                           getData();
                         }}
                       >
-                        -
+                        HARVEST
                       </StyledButton>
                       <s.SpacerMedium />
                       <s.TextDescription
@@ -448,32 +410,19 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        📝
+                        🏦
                       </s.TextDescription>
-                      <s.SpacerMedium />
-                      <StyledButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={process ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          registerMint();
-                          getData();
-                        }}
-                      >
-                        +
-                      </StyledButton>
-                    </s.Container>
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          mintEmperor();
+                          FarmEmperor();
                           getData();
                         }}
                       >
-                        {process ? "⚡" : "MINT"}
+                        {process ? "⚡" : "FARM"}
                       </StyledButton>
                     </s.Container>
                   </>
