@@ -337,7 +337,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  EMPEROR YIELD FARMING.
+                  EMPEROR STAKE FARMING.
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
