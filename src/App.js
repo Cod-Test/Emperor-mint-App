@@ -129,6 +129,34 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
+  const HarvestEmperor = () => {
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalGasLimit = String(gasLimit);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Harvest processing...`);
+    setProcess(true);
+    blockchain.smartContract.methods
+      .harvest(blockchain.account)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, Harvest failed ❌");
+        setProcess(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `Congrats! Harvest successful ✔️`
+        );
+        setProcess(false);
+        dispatch(fetchData(blockchain.account));
+      });
+  };
+
   const FarmEmperor = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
@@ -136,7 +164,7 @@ function App() {
     setFeedback(`Farming processing...`);
     setProcess(true);
     blockchain.smartContract.methods
-      .farm(blockchain.account)
+      .farm()
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -151,34 +179,6 @@ function App() {
         console.log(receipt);
         setFeedback(
           `Congrats! Farming successful ✔️`
-        );
-        setProcess(false);
-        dispatch(fetchData(blockchain.account));
-      });
-  };
-
-  const HarvestEmperor = () => {
-    let gasLimit = CONFIG.GAS_LIMIT;
-    let totalGasLimit = String(gasLimit);
-    console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Harvesting processing...`);
-    setProcess(true);
-    blockchain.smartContract.methods
-      .harvest()
-      .send({
-        gasLimit: String(totalGasLimit),
-        to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
-      })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Sorry, Harvesting failed ❌");
-        setProcess(false);
-      })
-      .then((receipt) => {
-        console.log(receipt);
-        setFeedback(
-          `Congrats! Harvest successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -397,11 +397,11 @@ function App() {
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          HarvestEmperor();
+                          FarmEmperor();
                           getData();
                         }}
                       >
-                        HARVEST
+                        FARM
                       </StyledButton>
                       <s.SpacerMedium />
                       <s.TextDescription
@@ -419,11 +419,11 @@ function App() {
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          FarmEmperor();
+                          HarvestEmperor();
                           getData();
                         }}
                       >
-                        {process ? "⚡" : "FARM"}
+                        {process ? "⚡" : "HARVEST"}
                       </StyledButton>
                     </s.Container>
                   </>
