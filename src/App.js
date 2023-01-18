@@ -399,7 +399,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens required for stakeing.
+                  20,000 {CONFIG.SYMBOL} tokens required for stake while 500 tokens for Pools.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
