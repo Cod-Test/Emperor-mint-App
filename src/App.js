@@ -129,14 +129,14 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-  const HarvestEmperor = () => {
+  const UnstakeEmperor = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Harvest processing...`);
+    setFeedback(`Unstake processing...`);
     setProcess(true);
     blockchain.smartContract.methods
-      .harvest(blockchain.account)
+      .unstake(blockchain.account)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -144,27 +144,27 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, Harvest failed ❌");
+        setFeedback("Sorry, Unstake failed ❌");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Harvest successful ✔️`
+          `Congrats! Unstake successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
       });
   };
 
-  const FarmEmperor = () => {
+  const ExitPool = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Farming processing...`);
+    setFeedback(`Exit processing...`);
     setProcess(true);
     blockchain.smartContract.methods
-      .farm()
+      .exitPool(blockchain.account)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -172,13 +172,69 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, Farming failed ❌");
+        setFeedback("Sorry, Exit failed ❌");
         setProcess(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congrats! Farming successful ✔️`
+          `Congrats! Exit successful ✔️`
+        );
+        setProcess(false);
+        dispatch(fetchData(blockchain.account));
+      });
+  };
+
+  const StakeEmperor = () => {
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalGasLimit = String(gasLimit);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Stake processing...`);
+    setProcess(true);
+    blockchain.smartContract.methods
+      .stake()
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, Stake failed ❌");
+        setProcess(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `Congrats! Stake successful ✔️`
+        );
+        setProcess(false);
+        dispatch(fetchData(blockchain.account));
+      });
+  };
+
+  const JoinPool = () => {
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalGasLimit = String(gasLimit);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Join processing...`);
+    setProcess(true);
+    blockchain.smartContract.methods
+      .joinPool()
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, Join failed ❌");
+        setProcess(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `Congrats! Join successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -247,7 +303,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data._farmers}
+              {data._stakers}
             </s.TextTitle>
             <s.TextDescription
                         style={{
@@ -255,7 +311,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        FARMERS
+                        STAKERS
                       </s.TextDescription>
             <s.SpacerSmall />
             <s.TextDescription
@@ -315,7 +371,7 @@ function App() {
               {CONFIG.TUTOR}
             </StyledLink>
             <s.SpacerSmall />
-            {Number(data._farmers) >= CONFIG.MAX_SUPPLY ? (
+            {Number(data._stakers) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -343,7 +399,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens required for farming.
+                  20,000 {CONFIG.SYMBOL} tokens required for stakeing.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -392,16 +448,29 @@ function App() {
                       {feedback}
                     </s.TextDescription>
                     <s.SpacerMedium />
+                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          FarmEmperor();
+                          StakeEmperor();
                           getData();
                         }}
                       >
-                        FARM
+                        STAKE
+                      </StyledButton>
+                      <s.SpacerMedium />
+                      <StyledButton
+                        style={{ lineHeight: 0.4 }}
+                        disabled={process ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          JoinPool();
+                          getData();
+                        }}
+                      >
+                        JOINPOOL
                       </StyledButton>
                       <s.SpacerMedium />
                       <s.TextDescription
@@ -413,17 +482,28 @@ function App() {
                         🏦
                       </s.TextDescription>
                     <s.SpacerSmall />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          HarvestEmperor();
+                          ExitPool();
                           getData();
                         }}
                       >
-                        {process ? "⚡" : "HARVEST"}
+                        EXITPOOL
+                      </StyledButton>
+                      <s.SpacerMedium />
+                      <StyledButton
+                        style={{ lineHeight: 0.4 }}
+                        disabled={process ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          UnstakeEmperor();
+                          getData();
+                        }}
+                      >
+                        {process ? "⚡" : "UNSTAKE"}
                       </StyledButton>
                     </s.Container>
                   </>
