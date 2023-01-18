@@ -453,11 +453,11 @@ function App() {
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          StakeEmperor();
+                          JoinPool();
                           getData();
                         }}
                       >
-                        STAKE
+                        JOINPOOL
                       </StyledButton>
                       <s.SpacerMedium />
                       <StyledButton
@@ -465,11 +465,11 @@ function App() {
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          JoinPool();
+                          ExitPool();
                           getData();
                         }}
                       >
-                        JOINPOOL
+                        EXITPOOL
                       </StyledButton>
                       <s.SpacerSmall />
                       <s.TextDescription
@@ -486,11 +486,11 @@ function App() {
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          ExitPool();
+                          StakeEmperor();
                           getData();
                         }}
                       >
-                        EXITPOOL
+                        STAKE
                       </StyledButton>
                       <s.SpacerMedium />
                       <StyledButton
