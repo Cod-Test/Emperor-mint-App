@@ -448,7 +448,6 @@ function App() {
                       {feedback}
                     </s.TextDescription>
                     <s.SpacerMedium />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
@@ -472,7 +471,7 @@ function App() {
                       >
                         JOINPOOL
                       </StyledButton>
-                      <s.SpacerMedium />
+                      <s.SpacerSmall />
                       <s.TextDescription
                         style={{
                           textAlign: "center",
@@ -505,7 +504,6 @@ function App() {
                       >
                         {process ? "⚡" : "UNSTAKE"}
                       </StyledButton>
-                    </s.Container>
                   </>
                 )}
               </>
