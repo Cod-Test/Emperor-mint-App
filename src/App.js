@@ -303,7 +303,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data._stakers}
+              {data._stakes}
             </s.TextTitle>
             <s.TextDescription
                         style={{
@@ -311,7 +311,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        STAKERS
+                        TOTAL STAKE
                       </s.TextDescription>
             <s.SpacerSmall />
             <s.TextDescription
@@ -371,7 +371,7 @@ function App() {
               {CONFIG.TUTOR}
             </StyledLink>
             <s.SpacerSmall />
-            {Number(data._stakers) >= CONFIG.MAX_SUPPLY ? (
+            {Number(data._stakes) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
