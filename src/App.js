@@ -393,13 +393,13 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  EMPEROR YIELD STAKING.
+                  EMPEROR YIELD STAKING
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens required for stake while 500 tokens for Pools.
+                  20,000 {CONFIG.SYMBOL} tokens for staking, 500 tokens for Pool.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -478,7 +478,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        🏦
+                        ⛓️
                       </s.TextDescription>
                     <s.SpacerSmall />
                       <StyledButton
