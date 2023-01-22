@@ -399,7 +399,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens for staking, 500 tokens for Pool.
+                  20,000 {CONFIG.SYMBOL} tokens for stake, 500 tokens for Pool.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
