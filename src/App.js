@@ -459,6 +459,9 @@ function App() {
                       >
                         JOINPOOL
                       </StyledButton>
+                      <td style={{ fontSize: "19px" }}>Your Staked NFTs:
+                          <span style={{ backgroundColor: "#ffffff00", fontSize: "21px", color: "#39FF14", fontWeight: "500", textShadow: "1px 1px 2px #000000" }} id='yournfts'></span>
+                        </td>
                       <s.SpacerMedium />
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
