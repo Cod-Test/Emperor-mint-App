@@ -269,10 +269,6 @@ function App() {
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
-            <StyledLink target={"_blank"} href={CONFIG.SCAN_LINKB}>
-              {CONFIG.SCANB}
-            </StyledLink>
-            <s.SpacerSmall />
             {Number(data._stakers) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
