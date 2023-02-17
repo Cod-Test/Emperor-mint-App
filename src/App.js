@@ -157,34 +157,6 @@ function App() {
       });
   };
 
-  const ExitPool = () => {
-    let gasLimit = CONFIG.GAS_LIMIT;
-    let totalGasLimit = String(gasLimit);
-    console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Exit processing...`);
-    setProcess(true);
-    blockchain.smartContract.methods
-      .exitPool(blockchain.account)
-      .send({
-        gasLimit: String(totalGasLimit),
-        to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
-      })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Sorry, Exit failed ❌");
-        setProcess(false);
-      })
-      .then((receipt) => {
-        console.log(receipt);
-        setFeedback(
-          `Congrats! Exit successful ✔️`
-        );
-        setProcess(false);
-        dispatch(fetchData(blockchain.account));
-      });
-  };
-
   const StakeEmperor = () => {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit);
@@ -207,34 +179,6 @@ function App() {
         console.log(receipt);
         setFeedback(
           `Congrats! Stake successful ✔️`
-        );
-        setProcess(false);
-        dispatch(fetchData(blockchain.account));
-      });
-  };
-
-  const JoinPool = () => {
-    let gasLimit = CONFIG.GAS_LIMIT;
-    let totalGasLimit = String(gasLimit);
-    console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Join processing...`);
-    setProcess(true);
-    blockchain.smartContract.methods
-      .joinPool()
-      .send({
-        gasLimit: String(totalGasLimit),
-        to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
-      })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Sorry, Join failed ❌");
-        setProcess(false);
-      })
-      .then((receipt) => {
-        console.log(receipt);
-        setFeedback(
-          `Congrats! Join successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -329,49 +273,7 @@ function App() {
               {CONFIG.SCANB}
             </StyledLink>
             <s.SpacerSmall />
-            <span
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <StyledButton
-                onClick={(e) => {
-                  window.open("/config/EmperorWhitePaper.pdf", "_blank");
-                }}
-                style={{
-                  margin: "5px",
-                }}
-              >
-                W/Paper1
-              </StyledButton>
-              <StyledButton
-                onClick={(e) => {
-                  window.open("/config/EmperorWhitePaper.pdf", "_blank");
-                }}
-                style={{
-                  margin: "5px",
-                }}
-              >
-                W/Paper2
-              </StyledButton>
-            </span>
-            <s.SpacerSmall />
-            <StyledButton
-                style={{
-                  margin: "5px",
-                }}
-                onClick={(e) => {
-                  window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                }}
-              >
-                {CONFIG.MARKETPLACE}
-              </StyledButton>
-            <s.SpacerSmall />
-            <StyledLink target={"_blank"} href={"/config/EmperorwhitePaper.pdf"}>
-              {CONFIG.TUTOR}
-            </StyledLink>
-            <s.SpacerSmall />
-            {Number(data._stakes) >= CONFIG.MAX_SUPPLY ? (
+            {Number(data._stakers) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -399,7 +301,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens for stake, 500 tokens for Pool.
+                  20,000 {CONFIG.SYMBOL} tokens for stake
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -453,39 +355,6 @@ function App() {
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
-                          JoinPool();
-                          getData();
-                        }}
-                      >
-                        JOINPOOL
-                      </StyledButton>
-                      <s.SpacerMedium />
-                      <StyledButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={process ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          ExitPool();
-                          getData();
-                        }}
-                      >
-                        EXITPOOL
-                      </StyledButton>
-                      <s.SpacerSmall />
-                      <s.TextDescription
-                        style={{
-                          textAlign: "center",
-                          color: "var(--accent-text)",
-                        }}
-                      >
-                        ⛓️
-                      </s.TextDescription>
-                    <s.SpacerSmall />
-                      <StyledButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={process ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
                           StakeEmperor();
                           getData();
                         }}
@@ -519,55 +388,6 @@ function App() {
             />
           </s.Container>
         </ResponsiveWrapper>
-        <s.SpacerMedium />
-        <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-        <s.Container ai={"center"} jc={"center"} fd={"row"}>
-        <StyledRoundButton 
-          onClick={(e) => {
-            window.open(CONFIG.HANDLE_LINK, "_blank");
-          }}
-        >
-          🐦
-        </StyledRoundButton>
-        <s.SpacerSmall />
-        <StyledRoundButton 
-          onClick={(e) => {
-            window.open(CONFIG.HANDLE_LINK, "_blank");
-          }}
-        >
-          🦄
-        </StyledRoundButton>
-        </s.Container>
-        <s.SpacerSmall />
-        <StyledButton 
-          onClick={(e) => {
-            window.open(CONFIG.MARKET_LINK, "_blank");
-          }}
-        >
-          {CONFIG.MARKET}
-        </StyledButton>
-        <s.SpacerSmall />
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-text)",
-            }}
-          >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and with a funded wallet.
-          </s.TextDescription>
-          <s.SpacerSmall />
-          <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-text)",
-            }}
-          >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully execute your operations.
-            For Contract address, source code and functions, please click the CONTRACT button above.
-          </s.TextDescription>
-        </s.Container>
       </s.Container>
     </s.Screen>
   );
