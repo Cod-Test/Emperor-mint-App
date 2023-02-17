@@ -247,7 +247,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data._stakes}
+              {data._stakers}
             </s.TextTitle>
             <s.TextDescription
                         style={{
@@ -255,7 +255,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        TOTAL STAKE
+                        stakers
                       </s.TextDescription>
             <s.SpacerSmall />
             <s.TextDescription
@@ -301,7 +301,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  20,000 {CONFIG.SYMBOL} tokens for stake
+                  2,000 tokens for staking
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
