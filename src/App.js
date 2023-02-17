@@ -247,7 +247,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data._stakers}
+              {data._stakes}
             </s.TextTitle>
             <s.TextDescription
                         style={{
