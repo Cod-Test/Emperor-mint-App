@@ -136,7 +136,7 @@ function App() {
     setFeedback(`Unstake processing...`);
     setProcess(true);
     blockchain.smartContract.methods
-      .unstake(blockchain.account)
+      .withdraw()
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -179,6 +179,34 @@ function App() {
         console.log(receipt);
         setFeedback(
           `Congrats! Stake successful ✔️`
+        );
+        setProcess(false);
+        dispatch(fetchData(blockchain.account));
+      });
+  };
+
+  const claimReward = () => {
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalGasLimit = String(gasLimit);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Claiming processing...`);
+    setProcess(true);
+    blockchain.smartContract.methods
+      .claimRewards()
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, Claim failed ❌");
+        setProcess(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `Congrats! Claim successful ✔️`
         );
         setProcess(false);
         dispatch(fetchData(blockchain.account));
@@ -297,7 +325,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  2,000 tokens for staking
+                  10,000 tokens for staking
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -346,6 +374,7 @@ function App() {
                       {feedback}
                     </s.TextDescription>
                     <s.SpacerMedium />
+                    <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
@@ -367,7 +396,20 @@ function App() {
                           getData();
                         }}
                       >
-                        {process ? "⚡" : "UNSTAKE"}
+                        UNSTAKE
+                      </StyledButton>
+                      </s.Container>
+                      <s.SpacerMedium />
+                      <StyledButton
+                        style={{ lineHeight: 0.4 }}
+                        disabled={process ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          claimReward();
+                          getData();
+                        }}
+                      >
+                        {process ? "⚡" : "CLAIM"}
                       </StyledButton>
                   </>
                 )}
