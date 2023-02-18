@@ -374,7 +374,7 @@ function App() {
                       {feedback}
                     </s.TextDescription>
                     <s.SpacerMedium />
-                    <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+                   <s.Container ai={"center"} jc={"center"} fd={"row"}> 
                       <StyledButton
                         style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
