@@ -3,8 +3,8 @@
   "SCAN_LINK": "https://scan.coredao.org/token/0x8afb52de791a19873c3097195ef04d48ed93fe14",
   "NETWORK": {
     "NAME": "CORE",
-    "SYMBOL": "tCORE",
-    "ID": 1115
+    "SYMBOL": "CORE",
+    "ID": 1116
   },
   "NFT_NAME": "EMPEROR NFT",
   "SCAN": "CONTRACT",
