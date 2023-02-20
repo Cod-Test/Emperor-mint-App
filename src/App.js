@@ -388,7 +388,6 @@ function App() {
                       </StyledButton>
                       <s.SpacerMedium />
                       <StyledButton
-                        style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -401,7 +400,6 @@ function App() {
                       </s.Container>
                       <s.SpacerMedium />
                       <StyledButton
-                        style={{ lineHeight: 0.4 }}
                         disabled={process ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
