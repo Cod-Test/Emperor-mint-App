@@ -16,7 +16,7 @@
   "MAX_SUPPLY": 102,
   "WEI_COST": 2000000000000000000,
   "DISPLAY_COST": 2,
-  "GAS_LIMIT": 57285,
+  "GAS_LIMIT": 285000,
   "MARKETPLACE": "eClub",
   "MARKETPLACE_LINK": "https://t.me/+CbV70CRJWII0ZWVk",
   "SCAN_LINKB": "https://scan.test.btcs.network/address/0x8fd038804166faaf8136b9d8e1c3f5dd6ba34d9c",
